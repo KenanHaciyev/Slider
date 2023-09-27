@@ -23,16 +23,18 @@ body {
   align-items: center;
   height: 360px;
   width: 850px;
-  border: 1px solid black;
+  border: 1px solid rgba(180, 178, 178, 0.686);
+  border-radius: 5px;
   padding: 5px 20px;
 }
 
 .arrow-left {
+  position: relative;
   height: 37px;
   width: 24px;
   background-color: rgb(255, 196, 12);
   border-radius: 5px;
-  position: relative;
+  cursor: pointer;
 }
 .arrow-left .up-line {
   position: absolute;
@@ -54,11 +56,12 @@ body {
 }
 
 .arrow-right {
+  position: relative;
   height: 37px;
   width: 24px;
   background-color: rgb(255, 196, 12);
   border-radius: 5px;
-  position: relative;
+  cursor: pointer;
 }
 .arrow-right .up-line {
   position: absolute;
@@ -90,60 +93,98 @@ body {
   display: flex;
   justify-content: space-around;
   width: inherit;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-.slider__slide {
+.slider .slider__content .slide {
   height: 300px;
   width: 250px;
   position: relative;
+  transition: all 1s;
+  animation-name: slidein;
+  animation-duration: 0.5s;
 }
-.slider__slide-content {
+.slider .slider__content .slide__content {
   color: rgba(255, 255, 255, 0.75);
   position: absolute;
   bottom: 5px;
   padding: 5px 12px;
 }
-.slider__slide-create {
+.slider .slider__content .slide__create {
   font-size: 11px;
 }
-.slider__slide-create .author {
+.slider .slider__content .slide__create .author {
   color: rgb(255, 196, 12);
 }
-.slider__slide-title {
+.slider .slider__content .slide__title {
   font-size: 18px;
   text-transform: capitalize;
   font-weight: 300;
   margin-bottom: 3px;
 }
-.slider__slide-title .head-word {
+.slider .slider__content .slide__title .head-word {
   color: #fff;
 }
-.slider__slide-tags {
+.slider .slider__content .slide__tags {
   color: rgb(255, 196, 12);
   text-transform: uppercase;
   font-size: 11px;
 }
-.slider__bg {
+.slider .slider__content .slide__bg {
+  position: relative;
+}
+.slider .slider__content .slide__bg::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.0621498599) 46%, rgba(0, 0, 0, 0.9136904762) 92%);
+}
+.slider .slider__content .slide__img {
   height: 300px;
   width: 250px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 8px;
-  background: rgb(0, 0, 0);
-  background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.5915616246) 21%, rgba(33, 33, 46, 0.056547619) 65%), url(../images/yoga.cms);
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
 }
 .slider__pagination {
   display: flex;
-  justify-content: space-between;
   font-size: 9px;
+  font-weight: 600;
   min-width: 60px;
+  cursor: pointer;
+}
+.slider__pagination .pagination-item {
+  width: 20px;
+  text-align: center;
 }
 .slider__pagination .active {
+  position: relative;
+}
+.slider__pagination .active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
   background-color: rgb(255, 196, 12);
-  border-radius: 10px;
   height: 12px;
-  width: 21px;
-  text-align: center;
+  width: 20px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=styles.css.map */
